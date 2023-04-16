@@ -1,50 +1,41 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+
+import {getCollection} from "astro:content";
+
+const blogPosts = await getCollection('blog');
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+<Layout title="The not secret box">
+	<main class="mx-auto p-6 w-screen md:w-4/5 lg:w-3/5 xl:w-2/5">
+		<h1>The <span class="italic">not</span> Secret Box</h1>
+		<h6>The inner machinations of my mind are an <span class="italic">enigma</span></h6>
+		<h6>Recovering from terminal <span class="italic">not-invented-here</span> syndrome</h6>
 		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+			Everything has a beginning, and you're looking at one right now.
 		</p>
 		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
+			{blogPosts.map(post => (
+				<Card
+					href={`/blog/${post.slug}`}
+					title={post.data.title}
+					body={post.data.description}
+				/>
+			))}
 		</ul>
 	</main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
 	h1 {
 		font-size: 3rem;
-		font-weight: 800;
+		font-weight: 700;
 		margin: 0;
+	}
+	h6 {
+		@apply text-sm;
+		@apply font-thin;
 	}
 	.text-gradient {
 		background-image: var(--accent-gradient);
