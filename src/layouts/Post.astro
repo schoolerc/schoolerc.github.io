@@ -15,28 +15,28 @@ const {title, author, dateAuthored, description, tags} = Astro.props.frontmatter
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-	<meta charset="UTF-8"/>
-	<title>{title}</title>
-	<meta name="author" content={author}/>
-	<meta name="description" content={description}/>
-	<meta name="generator" content={Astro.generator}/>
-	<meta name="viewport" content="width=device-width"/>
-	<meta name="keywords" content={tags.join(",")}/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta charset="UTF-8"/>
+  <title>{title}</title>
+  <meta name="author" content={author}/>
+  <meta name="description" content={description}/>
+  <meta name="generator" content={Astro.generator}/>
+  <meta name="viewport" content="width=device-width"/>
+  <meta name="keywords" content={tags.join(",")}/>
 </head>
 <body>
 <article
-				class="drop-shadow-none border-0 my-0 md:my-2 md:border md:drop-shadow-2xl px-4 py-2 border-gray-500 mx-auto w-screen md:w-4/5 lg:w-3/5 xl:w-2/5">
-	<header>
-		<h1 class="text-xl md:text-2xl font-semibold">{title}</h1>
-		<h5 class="text-sm font-thin">Written On: {dateAuthored.toLocaleString()}</h5>
-	</header>
-	<section class="my-4">
-		<slot/>
-	</section>
-	<footer>
-		<h6 class="text-sm font-thin">Tags: {tags.join(", ")}</h6>
-	</footer>
+  class="drop-shadow-none border-0 my-0 md:my-2 md:border md:drop-shadow-2xl px-4 py-2 border-gray-500 mx-auto w-screen md:w-4/5 lg:w-3/5 xl:w-2/5">
+  <header>
+    <h1>{title}</h1>
+    <h6>Written On: {dateAuthored.toLocaleString()}</h6>
+  </header>
+  <section class="my-4">
+    <slot/>
+  </section>
+  <footer>
+    <h6>Tags: {tags.join(", ")}</h6>
+  </footer>
 </article>
 </body>
 </html>
@@ -56,18 +56,18 @@ const {title, author, dateAuthored, description, tags} = Astro.props.frontmatter
         Bitstream Vera Sans Mono, Courier New, monospace;
     }
 
-		section h1 {
-			@apply text-xl;
-			@apply font-semibold;
-		}
+    section h1 {
+        @apply text-xl;
+        @apply font-semibold;
+    }
 
-		section h2 {
-			@apply text-xl;
-		}
+    section h2 {
+        @apply text-xl;
+    }
 
-		section p {
-			@apply mt-2;
-			@apply mb-4;
-			@apply indent-8;
-		}
+    section p {
+        @apply mt-2;
+        @apply mb-4;
+        @apply indent-8;
+    }
 </style>
