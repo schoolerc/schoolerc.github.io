@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --accent: 124, 58, 237;
+    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+}
+html {
+    font-family: system-ui, sans-serif;
+    background-color: #F6F6F6;
+}
+code {
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+/* @media < screen(sm) */
+
+main {
+    transition: all 250ms ease-in-out;
+    @apply w-screen;
+    @apply mx-auto;
+    @apply my-1;
+}
+
+h1 {
+    @apply text-4xl;
+    @apply font-semibold;
+}
+
+h2 {
+    @apply text-2xl;
+    @apply font-semibold;
+}
+
+h3 {
+    @apply text-xl;
+}
+
+h2 + h3 {
+    margin-top: 1rem;
+}
+
+h4 {
+    @apply text-lg;
+    @apply font-thin;
+}
+
+h5 {
+    @apply text-sm;
+    @apply font-thin;
+}
+
+h6 {
+    @apply text-xs;
+    @apply font-thin;
+}
+
+header {
+    @apply my-2;
+}
+
+a {
+    @apply text-blue-800;
+}
+
+a:visited {
+    @apply text-indigo-800;
+}
+
+/* end @media < screen(sm) */
+
+@media screen(sm) {
+}
+
+@media screen(md) {
+}
+
+@media screen(lg) {
+    main {
+        @apply w-4/5;
+    }
+}
+
+@media screen(xl) {
+    main {
+        @apply w-3/4;
+    }
+}
+
+@media screen(2xl) {
+}
